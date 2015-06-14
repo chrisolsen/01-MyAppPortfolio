@@ -11,14 +11,25 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
-    Context mContext;
+    Context Context;
+    Toast Message;
+
+    private void showMessageToUser(String msg) {
+        if (Message == null) {
+            Message = Toast.makeText(Context, msg, Toast.LENGTH_SHORT);
+        } else {
+            Message.cancel();
+        }
+
+        Message.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mContext = getApplicationContext();
+        Context = getApplicationContext();
     }
 
     @Override
@@ -45,26 +56,29 @@ public class MainActivity extends ActionBarActivity {
 
 
     public void openSpotify(View view) {
-        Toast.makeText(mContext, "This button will launch Spotify!", Toast.LENGTH_SHORT).show();
+        showMessageToUser("This button will launch Spotify!");
     }
 
     public void openScores(View view) {
+        showMessageToUser();
         Toast.makeText(this, "This button will launch Scores App!", Toast.LENGTH_SHORT).show();
     }
 
     public void openLibrary(View view) {
+        showMessageToUser();
         Toast.makeText(this, "This button will launch Library App!", Toast.LENGTH_SHORT).show();
     }
 
     public void openBuildItBigger(View view) {
+        showMessageToUser();
         Toast.makeText(this, "This button will launch Build it Bigger!", Toast.LENGTH_SHORT).show();
     }
 
     public void openXYZReader(View view) {
-        Toast.makeText(this, "This button will launch XYZ Reader!", Toast.LENGTH_SHORT).show();
+        showMessageToUser("This button will launch XYZ Reader!");
     }
 
     public void openCapstone(View view) {
-        Toast.makeText(this, "This button will launch Capstone!", Toast.LENGTH_SHORT).show();
+        showMessageToUser("This button will launch Capstone!");
     }
 }
