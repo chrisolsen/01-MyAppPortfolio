@@ -16,11 +16,10 @@ public class MainActivity extends ActionBarActivity {
 
     private void showMessageToUser(String msg) {
         if (Message == null) {
-            Message = Toast.makeText(Context, msg, Toast.LENGTH_SHORT);
-        } else {
-            Message.cancel();
+            Message = Toast.makeText(Context, null, Toast.LENGTH_SHORT);
         }
 
+        Message.setText(msg);
         Message.show();
     }
 
@@ -60,18 +59,15 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void openScores(View view) {
-        showMessageToUser();
-        Toast.makeText(this, "This button will launch Scores App!", Toast.LENGTH_SHORT).show();
+        showMessageToUser("This button will launch Scores App!");
     }
 
     public void openLibrary(View view) {
-        showMessageToUser();
-        Toast.makeText(this, "This button will launch Library App!", Toast.LENGTH_SHORT).show();
+        showMessageToUser("This button will launch Library App!");
     }
 
     public void openBuildItBigger(View view) {
-        showMessageToUser();
-        Toast.makeText(this, "This button will launch Build it Bigger!", Toast.LENGTH_SHORT).show();
+        showMessageToUser("This button will launch Build it Bigger!");
     }
 
     public void openXYZReader(View view) {
